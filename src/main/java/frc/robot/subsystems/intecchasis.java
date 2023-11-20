@@ -15,7 +15,7 @@ public class intecchasis extends SubsystemBase {
 
   public intecchasis() {}
 public void Intec(XboxController controlK){
-  m_360Srx.set(ControlMode.PercentOutput,controlK.getBButton());
+
 }
 
   

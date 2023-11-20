@@ -5,11 +5,15 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.intecchasis;
 
 public class intecCommand extends CommandBase {
-  /** Creates a new intecCommand. */
-  public intecCommand() {
-    // Use addRequirements() here to declare subsystem dependencies.
+  intecchasis intecCommand1;
+
+  public intecCommand(intecchasis intecComand1) {
+    this.intecCommand1=intecComand1;
+    addRequirements(intecCommand1);
+
   }
 
   // Called when the command is initially scheduled.
@@ -20,7 +24,7 @@ public class intecCommand extends CommandBase {
   @Override
   public void execute() {}
 
-  // Called once the command ends or is interrupted.
+ 
   @Override
   public void end(boolean interrupted) {}
 
