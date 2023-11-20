@@ -11,7 +11,7 @@ public class intecCommand extends CommandBase {
   intecchasis intecCommand1;
 
   public intecCommand(intecchasis intecComand1) {
-    this.intecCommand1=intecComand1;
+    this.intecCommand1=intecCommand1;
     addRequirements(intecCommand1);
 
   }
