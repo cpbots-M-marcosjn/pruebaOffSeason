@@ -4,19 +4,29 @@
 
 package frc.robot.subsystems;
 
-import java.nio.channels.Channel;
-
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class SubsystemAlimentador {
+public class SubsystemAlimentador extends SubsystemBase{
 
-   private final Talon m_alimentador=new Talon (1);
+   private final Talon m_alimentador=new Talon(0);
    
-   public void inicio (XboxController Control){
+   public SubsystemAlimentador() {
+   
+   }
+
+
+   public void Control (XboxController Control){
     m_alimentador.set (-Control.getLeftTriggerAxis());
     m_alimentador.set (Control.getRightTriggerAxis());
     
    }
+
+   @Override
+    public void periodic (){}
+
+
+
 }
  
