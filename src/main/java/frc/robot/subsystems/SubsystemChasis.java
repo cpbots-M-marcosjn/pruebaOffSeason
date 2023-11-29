@@ -24,59 +24,51 @@ public class SubsystemChasis extends SubsystemBase {
 
   public SubsystemChasis() {}
   
-    public void Control (XboxController Control){
-double potencia=1;
-if(Control.getRightBumperPressed()){
-  potencia=potencia+.25;
-}
-if (Control.getLeftBumperPressed()){
-  potencia=potencia-.25;
-}
-      if(Control.getAButtonPressed()){
-  m_leftDrive1.set(-1*potencia);
-  m_leftDrive2.set(-1*potencia);
-  m_rigthDrive3.set(1*potencia);
-  m_rigthDrive4.set(1*potencia);
-}
-    
-else{
-if(Control.getYButtonPressed()){
-  m_leftDrive1.set(1*potencia);
-  m_leftDrive2.set(1*potencia);
-  m_rigthDrive3.set(-1*potencia);
-  m_rigthDrive4.set(-1*potencia);
+    public void Control (XboxController Control){ 
+     double potencia=1;
 
-}
-else{
-  if(Control.getXButtonPressed()){
-    m_leftDrive1.set(-1*potencia);
-    m_leftDrive2.set(-1*potencia);
-    m_rigthDrive3.set(-1*potencia);
-    m_rigthDrive4.set(-1*potencia);
-  }
-  else{
-    if(Control.getBButtonPressed()){
-      m_leftDrive1.set(1*potencia);
-      m_leftDrive2.set(1*potencia);
-      m_rigthDrive3.set(1*potencia);
-      m_rigthDrive4.set(1*potencia);
+      if(Control.getRightBumperPressed()){
+      potencia=potencia+.25;
     }
-    else{
-      m_leftDrive1.set(Control.getLeftY()*potencia);
-    m_leftDrive2.set(Control.getLeftY()*potencia);
-    m_rigthDrive3.set(-Control.getRightY()*potencia);
-    m_rigthDrive4.set(-Control.getRightY()*potencia);  
-  }
+
+    if (Control.getLeftBumperPressed()){
+      potencia=potencia-.25;
+    }
+
+    if(Control.getAButtonPressed()){
+        m_leftDrive1.set(-1*potencia);
+        m_leftDrive2.set(-1*potencia);
+        m_rigthDrive3.set(1*potencia);
+        m_rigthDrive4.set(1*potencia);
+    }else{
+      if(Control.getYButtonPressed()){
+        m_leftDrive1.set(1*potencia);
+        m_leftDrive2.set(1*potencia);
+        m_rigthDrive3.set(-1*potencia);
+        m_rigthDrive4.set(-1*potencia);
+      } else{
+      if(Control.getXButtonPressed()){
+        m_leftDrive1.set(-1*potencia);
+        m_leftDrive2.set(-1*potencia);
+        m_rigthDrive3.set(-1*potencia);
+        m_rigthDrive4.set(-1*potencia);
+      }
+      else{
+        if(Control.getBButtonPressed()){
+          m_leftDrive1.set(1*potencia);
+          m_leftDrive2.set(1*potencia);
+          m_rigthDrive3.set(1*potencia);
+          m_rigthDrive4.set(1*potencia);
+        } else{
+          m_leftDrive1.set(Control.getLeftY()*potencia);
+          m_leftDrive2.set(Control.getLeftY()*potencia);
+          m_rigthDrive3.set(-Control.getRightY()*potencia);
+          m_rigthDrive4.set(-Control.getRightY()*potencia);  
+          }
+        }
+      }
+    }
 }
-
-}
-
-}
-
-
-      
-    
-  
 
   
  @Override
