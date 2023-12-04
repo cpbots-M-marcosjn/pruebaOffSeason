@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import java.util.ResourceBundle.Control;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -18,7 +19,7 @@ public class SubsystemChasis extends SubsystemBase {
   final CANSparkMax m_leftDrive2=new CANSparkMax(2, MotorType.kBrushed);
   final CANSparkMax m_rigthDrive3=new CANSparkMax(3, MotorType.kBrushed);
   final CANSparkMax m_rigthDrive4=new CANSparkMax(4, MotorType.kBrushed);
-   
+   final TalonSRX m__360new=new TalonSRX(5);
   
 
 
@@ -35,26 +36,26 @@ public class SubsystemChasis extends SubsystemBase {
       potencia=potencia-.25;
     }
 
-    if(Control.getAButtonPressed()){
+    if(Control.getAButton()){
         m_leftDrive1.set(-1*potencia);
         m_leftDrive2.set(-1*potencia);
         m_rigthDrive3.set(1*potencia);
         m_rigthDrive4.set(1*potencia);
     }else{
-      if(Control.getYButtonPressed()){
+      if(Control.getYButton()){
         m_leftDrive1.set(1*potencia);
         m_leftDrive2.set(1*potencia);
         m_rigthDrive3.set(-1*potencia);
         m_rigthDrive4.set(-1*potencia);
       } else{
-      if(Control.getXButtonPressed()){
+      if(Control.getXButton()){
         m_leftDrive1.set(-1*potencia);
         m_leftDrive2.set(-1*potencia);
         m_rigthDrive3.set(-1*potencia);
         m_rigthDrive4.set(-1*potencia);
       }
       else{
-        if(Control.getBButtonPressed()){
+        if(Control.getBButton()){
           m_leftDrive1.set(1*potencia);
           m_leftDrive2.set(1*potencia);
           m_rigthDrive3.set(1*potencia);
@@ -66,7 +67,17 @@ public class SubsystemChasis extends SubsystemBase {
           m_rigthDrive4.set(-Control.getRightY()*potencia);  
           }
         }
-      }
+        if(Control.getLeftTriggerAxis()!=0){
+          m__360new.set(1*potencia);
+        }else{
+          if(Control.getRightTriggerAxis()!=0){
+            m__360new.set(-1*potencia);
+          }
+        }
+        }
+        
+
+      
     }
 }
 
